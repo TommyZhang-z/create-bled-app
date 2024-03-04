@@ -1,0 +1,11 @@
+{
+  "name": "create-bled-app",
+  "version": "0.1.4",
+  "bin": "./index.js",
+  "module": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "yargs": "^17.7.2"
+  }
+}

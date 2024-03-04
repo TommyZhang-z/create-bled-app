@@ -1,0 +1,23 @@
+### Create a new user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "password"
+}
+
+### Login with credentials
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "password"
+}
+
+### Access the protected route with cookie
+POST http://localhost:3000/protected
+Cookie: auth_session=kr5ofbvqjbc592sew0s3c2jfnq8t19hkam4uf84j; HttpOnly; Max-Age=2592000; Path=/; SameSite=Lax
+Origin: http://localhost:3000
+Host: localhost:3000
