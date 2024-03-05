@@ -167,6 +167,11 @@ const templatesDir = path.join(__dirname, "templates");
 const projectDir = path.join(process.cwd(), project);
 const templateDir = path.join(templatesDir, `bled-${database}-${auth}`);
 
+if (!fs.existsSync(templateDir)) {
+  p.log.error("Template not implemented yet.");
+  process.exit(1);
+}
+
 fs.cpSync(templateDir, projectDir, { overwrite: false, recursive: true });
 
 // read the package.json file and replace the name field
