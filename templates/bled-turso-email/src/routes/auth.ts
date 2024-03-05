@@ -38,15 +38,12 @@ export const router = new Elysia({ prefix: "/auth" })
       }
 
       // insert user into database
-      await db
-        .insert(users)
-        .values({
-          id: userId,
-          email,
-          emailVerified: false,
-          password: hashedPassword,
-        })
-        .onConflictDoNothing({ target: users.email });
+      await db.insert(users).values({
+        id: userId,
+        email,
+        emailVerified: false,
+        password: hashedPassword,
+      });
 
       const verificationCode = await generateEmailVerificationCode(
         userId,

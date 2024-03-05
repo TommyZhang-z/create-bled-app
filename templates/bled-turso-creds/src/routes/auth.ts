@@ -28,8 +28,7 @@ export const router = new Elysia({ prefix: "/auth" })
       // insert user into database
       await db
         .insert(users)
-        .values({ id: userId, username, password: hashedPassword })
-        .onConflictDoNothing({ target: users.username });
+        .values({ id: userId, username, password: hashedPassword });
 
       // create session
       const session = await lucia.createSession(userId, {});
