@@ -1,6 +1,10 @@
 {
   "name": "create-bled-app",
   "version": "0.1.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TommyZhang-z/create-bled-app.git"
+  },
   "bin": "./index.js",
   "module": "index.js",
   "type": "module",
