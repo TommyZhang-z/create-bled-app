@@ -1,0 +1,53 @@
+@baseUrl = http://localhost:3000
+@signupEmail = zwtsmurfacc@gmail.com
+@signupPassword = strongpassword
+@verificationCode = 74453212
+@resetToken = auazud906brd3vb0swiewt4lt3imujgyvt8xay2z
+
+### Create a new user
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+    "email": "{{signupEmail}}",
+    "password": "{{signupPassword}}"
+}
+
+### Login existing user
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "{{signupEmail}}",
+    "password": "newStrongPassword"
+}
+
+### Email Verification
+# Note: Replace 'YOUR_VERIFICATION_CODE' with the actual verification code received via email.
+POST {{baseUrl}}/auth/email-verification
+Content-Type: application/json
+Cookie: auth_session=ljn4dtt1vj0crayxmkijzdspkeqkbzf56x1m1euj; HttpOnly; Max-Age=2592000; Path=/; SameSite=Lax
+Origin: {{baseUrl}}
+Host: localhost:3000
+
+{
+    "code": "{{verificationCode}}"
+}
+
+### Request Password Reset
+# This endpoint is called when a user wants to reset their password.
+POST {{baseUrl}}/auth/reset-password
+Content-Type: application/json
+
+{
+    "email": "{{signupEmail}}"
+}
+
+### Perform Password Reset
+# Note: Replace 'YOUR_RESET_TOKEN' with the token received via email link.
+POST {{baseUrl}}/auth/reset-password/{{resetToken}}
+Content-Type: application/json
+
+{
+    "password": "newStrongPassword"
+}

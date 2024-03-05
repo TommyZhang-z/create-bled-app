@@ -1,0 +1,24 @@
+{
+  "name": "elysia-lucia-template",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "db:migrate": "bunx drizzle-kit generate:pg",
+    "db:push": "bunx drizzle-kit push:pg",
+    "db:studio": "bunx drizzle-kit studio"
+  },
+  "dependencies": {
+    "@lucia-auth/adapter-drizzle": "^1.0.2",
+    "@neondatabase/serverless": "^0.9.0",
+    "drizzle-orm": "^0.29.4",
+    "elysia": "latest",
+    "lucia": "^3.0.1",
+    "oslo": "^1.1.3"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.14"
+  },
+  "module": "src/index.js"
+}
